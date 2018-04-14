@@ -1,0 +1,23 @@
+{
+  "name": "coolwall",
+  "version": "1.0.0",
+  "description": "For ranking talks and technologies",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "author": "Ian Fitzpatrick",
+  "license": "MIT",
+  "dependencies": {
+    "@zeit/next-css": "^0.1.5",
+    "file-loader": "^1.1.11",
+    "next": "^5.1.0",
+    "react": "^16.3.1",
+    "react-dom": "^16.3.1",
+    "semantic-ui-css": "^2.3.1",
+    "semantic-ui-react": "^0.79.1",
+    "url-loader": "^1.0.1"
+  }
+}
