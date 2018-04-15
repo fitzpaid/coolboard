@@ -5,8 +5,8 @@ import { Grid } from 'semantic-ui-react';
 import ItemTypes from '../../ItemTypes';
 
 const BoardTarget = {
-  drop(props) {
-    console.log("Dropped");
+  drop(props, monitor) {
+    props.drop(monitor.getItem(), props.type)
   }
 }
 

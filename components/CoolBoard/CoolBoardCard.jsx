@@ -6,8 +6,10 @@ import '../../static/css/coolboard.css';
 import ItemTypes from '../../ItemTypes';
 
 const cardSource = {
-	beginDrag() {
-		return {}
+	beginDrag(props) {
+		return {
+      id: props.data.id
+    }
 	},
 }
 
