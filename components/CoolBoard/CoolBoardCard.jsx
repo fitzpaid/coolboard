@@ -1,16 +1,35 @@
 import React from 'react';
 import { Grid, Card, Image } from 'semantic-ui-react';
-import { DropTarget } from 'react-dnd';
+import { DragSource } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
 import '../../static/css/coolboard.css';
+import ItemTypes from '../../ItemTypes';
+
+const cardSource = {
+	beginDrag() {
+		return {}
+	},
+}
+
+function collect(connect, monitor) {
+	return {
+		connectDragSource: connect.dragSource(),
+		connectDragPreview: connect.dragPreview(),
+		isDragging: monitor.isDragging(),
+	}
+}
 
 class CoolBoardCard extends React.Component {
+  constructor(props) {
+    super(props);
+  }
 
   render() {
     const { id, title, imgSrc, description, link, presenter, status } = this.props.data;
     const { key } = this.props.data;
-    return (
-      <Grid.Row key={key} className='itemSpacing'>
+    const { connectDragSource } = this.props;
+    return connectDragSource(
+      <div key={key} className='row itemSpacing'>
         <Card centered>
           <Card.Content>
             <Image floated='right' size='mini' src={imgSrc} />
@@ -30,10 +49,10 @@ class CoolBoardCard extends React.Component {
             </a>
           </Card.Content>
         </Card>
-      </Grid.Row>
+      </div>
     )
   }
 
 };
 
-export default CoolBoardCard;
+export default DragSource(ItemTypes.BoardItem, cardSource, collect)(CoolBoardCard);

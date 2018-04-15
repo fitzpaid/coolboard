@@ -1,3 +1,3 @@
-export default ItemTypes = {
+export default {
   BoardItem: 'boardItem'
 }
