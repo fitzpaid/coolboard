@@ -1,38 +1,10 @@
 import React from 'react';
-import { Container, Grid, Card, Image } from 'semantic-ui-react';
-import '../static/css/coolboard.css';
+import { Container, Grid } from 'semantic-ui-react';
+import { DropTarget } from 'react-dnd';
+import HTML5Backend from 'react-dnd-html5-backend';
+import CoolBoardColumn from './CoolBoardColumn';
 
-const CoolBoardItem = (props) => {
-  const { id, title, imgSrc, description, link, presenter, status} = props.data;
-  const { key } = props.data;
-  return (
-    <Grid.Row key={key} className='itemSpacing'>
-      <Card centered>
-        <Card.Content>
-          <Image floated='right' size='mini' src={imgSrc} />
-          <Card.Header>
-            {title}
-          </Card.Header>
-          <Card.Meta>
-            {presenter}
-          </Card.Meta>
-          <Card.Description>
-            {description}
-          </Card.Description>
-        </Card.Content>
-        <Card.Content extra>
-          <a>
-            {status}
-          </a>
-        </Card.Content>
-      </Card>
-    </Grid.Row>
-  )
-
-};
-
-
-export default class CoolBoard extends React.Component {
+class CoolBoard extends React.Component {
   constructor (props) {
     super(props);
 
@@ -100,18 +72,13 @@ export default class CoolBoard extends React.Component {
     return (
       <Container>
         <Grid columns={3}>
-          <Grid.Column>
-            {uncool.map(item => <CoolBoardItem key={item.id} data={item} />)}
-          </Grid.Column>
-          <Grid.Column>
-            {cool.map(item => <CoolBoardItem key={item.id} data={item} />)}
-          </Grid.Column>
-          <Grid.Column>
-            {icecold.map(item => <CoolBoardItem key={item.id} data={item} />)}
-          </Grid.Column>
+          <CoolBoardColumn data={uncool} />
+          <CoolBoardColumn data={cool} />
+          <CoolBoardColumn data={icecold} />
         </Grid>
       </Container>
     );
   }
 
 }
+export default CoolBoard;

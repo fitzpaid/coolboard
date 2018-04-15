@@ -2,8 +2,10 @@ import React from 'react';
 import Head from 'next/head'
 import '../static/css/reset.css';
 import Shell from '../components/Shell';
-import CoolBoard from '../components/CoolBoard';
+import CoolBoard from '../components/CoolBoard/CoolBoard';
 import mapPathToPage from '../utils/pathUtil';
+import { DragDropContext } from 'react-dnd';
+import HTML5Backend from 'react-dnd-html5-backend';
 
 const CoolBoardScreen = ({page}) => (
   <div>
@@ -19,4 +21,4 @@ CoolBoardScreen.getInitialProps = ({pathname}) => ({
  page: mapPathToPage(pathname)
 });
 
-export default CoolBoardScreen;
+export default DragDropContext(HTML5Backend)(CoolBoardScreen);
