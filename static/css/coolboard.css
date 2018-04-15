@@ -1,7 +1,11 @@
-.itemPadding {
-  margin-top: 1rem;
+.dummyClass {
+  /* For some reason the first class isnt't being parsed */
 }
 
-.itemPadding:first-child {
+.itemSpacing:first-child {
   margin-top: 0;
+}
+
+.itemSpacing {
+  margin-top: 1em;
 }

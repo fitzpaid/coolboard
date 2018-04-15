@@ -6,7 +6,7 @@ const CoolBoardItem = (props) => {
   const { id, title, imgSrc, description, link, presenter, status} = props.data;
   const { key } = props.data;
   return (
-    <Grid.Row key={key} className='itemPadding'>
+    <Grid.Row key={key} className='itemSpacing'>
       <Card centered>
         <Card.Content>
           <Image floated='right' size='mini' src={imgSrc} />
@@ -96,7 +96,6 @@ export default class CoolBoard extends React.Component {
   }
 
   render () {
-    console.log(this.state);
     const {uncool, cool, icecold} = this.state;
     return (
       <Container>

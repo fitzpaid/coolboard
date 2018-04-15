@@ -15,8 +15,8 @@ const CoolBoardScreen = ({page}) => (
   </div>
 )
 
-CoolBoard.getInitialProps = ({pathname}) => ({
+CoolBoardScreen.getInitialProps = ({pathname}) => ({
  page: mapPathToPage(pathname)
-})
+});
 
 export default CoolBoardScreen;
